@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+  background: #e5e7eb; /* Tailwind gray-200 */
+}
+
+.shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: -150%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  animation: shimmer 1.8s infinite;
+}
+
+/* … your existing Tailwind + color variables + shimmer code */
+
+/* Toast animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+/* --- Animations --------------------------------------------------------- */
+@keyframes shimmer {
+  0%   { transform: translateX(-150%); }
+  100% { transform: translateX(150%); }
+}
+@keyframes fadeInUp {
+  0%   { opacity: 0; transform: translateY(6px) scale(.98); }
+  100% { opacity: 1; transform: translateY(0)   scale(1); }
+}
+
+/* utility classes we’ll use */
+.fade-in-up { animation: fadeInUp .28s ease both; }
+
+/* Shimmer overlay used while swapping */
+.shimmer-wrap { position: relative; overflow: hidden; }
+.shimmer-bar {
+  position: absolute; inset: 0 auto 0 -50%;
+  width: 50%; transform: skewX(-20deg);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.6), transparent);
+  animation: shimmer 1.2s linear infinite;
+  pointer-events: none;
+}
+
+/* Card + button polish */
+.card {
+  @apply rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow;
+}
+.btn {
+  @apply inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition active:scale-[.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+}
+.btn-dark { @apply bg-gray-900 text-white hover:bg-gray-800 focus-visible:ring-gray-900; }
+.btn-blue { @apply bg-blue-600 text-white hover:bg-blue-500 focus-visible:ring-blue-600; }
+.btn-purple { @apply bg-purple-600 text-white hover:bg-purple-500 focus-visible:ring-purple-600; }
+.badge {
+  @apply inline-flex items-center rounded-full border border-gray-300 bg-white px-2 py-0.5 text-[11px] font-semibold text-gray-700;
+}
+
+
