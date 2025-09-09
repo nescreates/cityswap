@@ -46,9 +46,11 @@ async function swapSlot(time: "morning" | "afternoon" | "evening") {
     const fixed = { ...replacement, time };
 
     setPlan((prev) => prev.map((i) => (i.time === time ? fixed : i)));
-  } catch (e: any) {
-    setError(e.message ?? "Something went wrong");
-  } finally {
+  } catch (e: unknown) {
+  const msg = e instanceof Error ? e.message : "Something went wrong";
+  setError(msg);
+}
+  finally {
     setLoading(false);
     setSwappingSlot(null);
   }
