@@ -6,8 +6,7 @@ Built with **Next.js + TypeScript + Tailwind CSS** and deployed on **Vercel**.
 ---
 
 ## 🚀 Demo
-👉 [Live Site](https://cityswap.vercel.app/)  
-
+👉 https://cityswap-esr5-azure.vercel.app/
 ---
 
 ## 📸 UI Preview
