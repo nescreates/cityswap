@@ -1,3 +1,9 @@
+![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-blueviolet?logo=tailwindcss)
+![Vercel](https://img.shields.io/badge/Deployed-Vercel-black?logo=vercel)
+
+
 # 🌆 CitySwap Travel
 
 CitySwap is a fun travel itinerary generator where you can swap parts of your day (flights, food, landmarks) for new adventures.  
